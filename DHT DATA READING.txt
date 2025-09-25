@@ -1,0 +1,30 @@
+MCU START: 18ms LOW
+MCU WAIT:  20-40us HIGH
+
+DHT Response: 80us LOW
+DHT prep sending data: 80us HIGH
+
+DATA sending(everybit of data begins with 50us): 50us LOW
+
+0: 26-28us HIGH
+1:70us	HIGH
+
+CHECK length of HIGH: 0/1
+
+so for 8 bit it looks like this
+
+[ DATA SENDING > CHECK length of HIGH ] = THIS IS 1 BIT
+
+
+TEST:
+
+0101-0100 = 84
+0000-0000 = 0
+0001-1110 = 30
+0000-0000 = 0
+0111-0010 = 114 (check SUM)
+
+ARDUINO PRINTED READING:
+84.00
+30.00
+

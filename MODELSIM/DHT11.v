@@ -1,0 +1,16 @@
+module DHT11(
+  inout wire data,
+  input clk
+);
+
+// FIRST SEND SIGNAL TO DHT for START
+//
+
+parameter START = 20'd1000000; // 20ms
+parameter WAIT = 11'd2000;//20uS = 1,000 (20-40uS of wait) || LOGIC SHOULD BE  CLK > 500 && CLK < 2000
+parameter DHT_RESPONSE = 12'd4000; // 80uS WAIT LOW 
+parameter DHT_DATA_TRANSMISSION = 12'd4000; // 80uS Prepare Transmission HIGH
+parameter DATA_first_bit = 12'd2500; // 1st bit is always LOW for 50uS before actual DATA
+parameter DATA_HIGH = 11'd1400; //1300 = 26uS, 1400 = 28uS
+parameter DATA_LOW = 12'd3500;//70uS = 3500
+endmodule
